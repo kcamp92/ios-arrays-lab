@@ -8,6 +8,12 @@ Create an array of strings called `colors` that contain "orange", "red", "yellow
 
 Then, using array subscripting and string interpolation, print out the String `"orange, yellow, and lavender are some of my favorite colors"`.
 
+```
+var myColors = ["orange", "red","yellow", "turquoise", "lavender"]
+var string = ("\(myColors[0]), \(myColors[2]), and \(myColors[4]) are some of my favorite colors")
+
+print(string)
+```
 
 ## Question 2
 
@@ -15,13 +21,38 @@ Remove "Illinois" and "Kansas" from the array below.
 
 `var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]`
 
+```
+var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]
+
+
+westernStates.remove(at: 5)
+westernStates.remove(at: 4)
+
+print (westernStates)
+```
 
 ## Question 3
 
 Iterate through the array below. For each state, print out the name of the state, a colon, and whether it is or is not **in the continental United States.**
 
 `let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]`
+```
+let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]
+//let characterString = moreStates
 
+for index in 0..<moreStates.count {
+let currentString = moreStates[index]
+//print(currentString,":")
+switch currentString {
+case "New Mexico", "Montana", "Texas", "New York", "Florida":
+print("\(currentString): continental")
+case "Alaska", "Hawaii":
+print("\(currentString): not continental")
+default:
+print("whatever")
+}
+}
+```
 
 ## Question 4
 
@@ -33,6 +64,29 @@ Iterate through the array below. For each sentence, print out how many non-white
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
 
+```
+let myString = "This is good practice with Strings!"
+
+var stringArray = myString.components(separatedBy: .whitespacesAndNewlines)
+print(stringArray)
+var currentArray = ""
+
+for character in stringArray {
+if character == " " {
+continue
+}
+currentArray += character
+
+}
+print(currentArray.count)
+```
+```
+let myFavoriteQuotesString = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]
+
+let reducedString = myFavoriteQuotesString.replacingOccurrences(of: " ", with: "")
+
+print(reducedString.count)
+```
 
 ## Question 5
 
@@ -41,6 +95,21 @@ Iterate through `garden` and place any 🌷 that you find into the `basket`. Rep
 ```swift
 var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
 var basket = [String]()
+```
+```
+var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
+var basket = [String]()
+
+//var garden = ["dirt",":tulip:","dirt",":tulip:","dirt","dirt",":tulip:","dirt",":tulip:","dirt"]
+//var basket = [String]()
+var newGarden = [String]()
+
+for (index, value) in garden.enumerated() where value == ":tulip:" {
+basket += [value]
+garden[index] = "dirt"
+}
+print (basket.count)
+print(garden)
 ```
 
 ## Question 6
@@ -53,7 +122,17 @@ The below array represents an unfinished batting lineup for a baseball team. **Y
 - Put "Reyes" to bat 8th instead.
 
 `var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]`
+```
+var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]
 
+battingLineup.append("Suzuki")
+//battingLineup.replaceSubrange("Jeter", with: "Tejada")
+battingLineup.remove(at: 0)
+battingLineup.append("Reyes")
+battingLineup[0] = "Tejada"
+battingLineup[4] = "Guerrero"
+print(battingLineup)
+```
 
 ## Question 7
 
@@ -116,7 +195,18 @@ let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int
 Iterate through `secondListOfNumbers`, and print out all the odd numbers.
 
 `var secondListOfNumbers = [19,13,14,19,101,10000,141,404]`
+```
+let secondListOfNumbers = [19,13,14,19,101,10000,141,404]
+let numberString = secondListOfNumbers[index]
+for index in 0..<secondListOfNumbers.count {
+// let numberString = secondListOfNumbers[index]
+}
+print(numberString)
 
+for numbers in numberString where numbers %2 !=0{
+print(numbers)
+}
+```
 
 ## Question 11
 
